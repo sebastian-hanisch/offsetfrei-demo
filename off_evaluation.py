@@ -434,7 +434,7 @@ def verdict_preis_grenze(d: float, umax: float, p_ohne: float, p_mit: float, spi
     """Kernfrage 2 mit Stellgrenze, wenn |d| < u_max (Start in Ruhe im Sollwert, Abschneiden): Fehler nach T Schritten und Spitze mit und ohne Störungsmodell."""
     kopf = "Das Störungsmodell beseitigt den Dauerfehler auch mit Stellgrenze" if abs(p_mit) < 1e-6 else "Das Störungsmodell beseitigt den Dauerfehler mit Stellgrenze nicht vollständig"
     return "info", (f"{kopf} (u_max = {de(umax, 2)}, |d| = {de(abs(d), 2)}): Abweichung vom Ziel nach {T} Schritten {de(abs(p_mit), 3)} gegen {de(abs(p_ohne), 3)} ohne Störungsmodell; "
-                    f"die Spitze ist {de(spitze_mit, 2)} gegen {de(spitze_ohne, 2)} beim reinen LQR (Abschneiden verlängert den Anlauf).")
+                    f"die Spitze ist {de(spitze_mit, 2)} gegen {de(spitze_ohne, 2)} beim reinen LQR (vermutlich verlängert das Abschneiden den Anlauf; die Ursache ist nicht einzeln gemessen).")
 
 
 def formel_text(strecke: str, k: float) -> str:

@@ -80,7 +80,7 @@ def test_stellgrenze_gleichstand_d_gleich_umax():
 
 
 def test_stellgrenze_unter_der_schwelle_und_start_in_ruhe():
-    """d = 0,9 < u_max = 1 aus der Ruhe: mit Modell geht der Ort auf 0, aber die Spitze ist 40,5 (Abschneiden verlängert den Anlauf); ohne Modell 2,132."""
+    """d = 0,9 < u_max = 1 aus der Ruhe: mit Modell geht der Ort auf 0, aber die Spitze ist 40,5 (vermutlich verlängert das Abschneiden den Anlauf; nicht einzeln gemessen); ohne Modell 2,132."""
     e = K.entwurf("wagen", 1.0, 0.5)
     pm, _, _ = K.lauf_grenze(e, 0.9, 1.0, True, T=300)
     po, _, _ = K.lauf_grenze(e, 0.9, 1.0, False, T=300)

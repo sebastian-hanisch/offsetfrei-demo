@@ -162,7 +162,7 @@ with st.expander("So funktioniert die Regelung ohne Dauerfehler", expanded=True)
 1. **Die Rückführung:** Aus der Riccati-Gleichung (Q = I, Stellgewicht R) folgt K; das Gesetz u = −K x ist stabil, kennt aber die Störung d nicht. Im Beharrungszustand verlangt der Wagen v = 0 und K₁·p = d, also **p = d/K₁**.
 2. **Das Störungsmodell:** Die Störung wird als Zustand mit d⁺ = d angehängt, und ein **Beobachter** schätzt (x, d) aus dem gemessenen Ort. Das Gesetz u = −K (x̂ − x_s) − d̂ hebt die geschätzte Störung auf.
 3. **Warum der Fehler verschwindet:** Im Beharrungszustand verlangt die d̂-Zeile des Beobachters eine Innovation von null, also y = ŷ; dann bleibt für den wahren Ort nur p = 0. Die wahre Strecke geht nicht ein, nur ihre Stabilität (Beweisskizze in der README).
-4. **Der Preis:** Der Beobachter braucht Zeit, bis er d kennt. In dieser Zeit schiebt die Störung den Wagen weiter als das reine LQR (Spitze 9,02 gegen 2,38 bei R = 1 und Beobachterpolen 3 × 0,5), und das stabile Gebiet der Streckenverstärkung wird schmaler.
+4. **Der Preis:** Der Beobachter braucht Zeit, bis er d kennt. In dieser Zeit schiebt die Störung den Wagen weiter als das reine LQR (Spitze 9,02 gegen 2,38 bei R = 1 und Beobachterpolen 3 × 0,5; je langsamer der Beobachter, desto größer die Spitze), und das stabile Gebiet der Streckenverstärkung wird schmaler.
         """
     )
 
@@ -419,7 +419,7 @@ st.markdown(
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
 | **Die Störung ist konstant** (d⁺ = d) | Bei einer Rampe bleibt am Wagen ein konstanter Ortsfehler von 57,6·s (R = 1, ρ = 0,5), bei einem Sinus verstärkt der Beobachterkreis p/d bis 13,1 gegen 2,37 (Experiment E) | – |
-| **Die Stellgrenze lässt die Gegenkraft zu** (Betrag von d kleiner als u_max) | Ist der Betrag von d größer als u_max, läuft der Wagen weg, mit und ohne Störungsmodell (Ort 22 728 nach 300 Schritten bei d = 1,5, u_max = 1) | [`mpc-stellgrenzen-demo`](https://github.com/sebastian-hanisch/mpc-stellgrenzen-demo), [`windup-pi-demo`](https://github.com/sebastian-hanisch/windup-pi-demo) |
+| **Die Stellgrenze lässt die Gegenkraft zu** (Betrag von d kleiner als u_max) | Ist der Betrag von d größer als u_max, läuft der Wagen weg, mit und ohne Störungsmodell (Ort 22 728 nach 300 Schritten bei d = 1,5, u_max = 1, R = 1, ρ = 0,5, Start (4; 0)); ob ein Betrag von d unter u_max für die Offsetfreiheit ausreicht, ist nur für die gemessenen Starts gezeigt | [`mpc-stellgrenzen-demo`](https://github.com/sebastian-hanisch/mpc-stellgrenzen-demo), [`windup-pi-demo`](https://github.com/sebastian-hanisch/windup-pi-demo) |
 | **Der Sensor misst, was geregelt wird** (b = 0) | Mit Messbias b bleibt der wahre Ort bei −b: offsetfrei heißt, die gemessene Größe erreicht das Ziel | – |
 | **Die Rangbedingung ist erfüllt** (eine Störung am Eingang, eine Messung) | Störung am Ausgang beim Wagen: Rang 2 von 3, das Störungsmodell ist nicht entwerfbar | – |
 | **Der Entwurf ist getrennt** (K aus dem unerweiterten LQR, L aus Polvorgabe) | Der Preis steht in Spitze (9,02 gegen 2,38), Frequenzgang (13,1 gegen 2,37) und stabilem g-Gebiet (0,41 bis 1,29 gegen 0 bis 1,94); andere Auslegungen sind nicht gemessen | [`lqr-reserven-demo`](https://github.com/sebastian-hanisch/lqr-reserven-demo) |
