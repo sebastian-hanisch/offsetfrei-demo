@@ -1,7 +1,6 @@
 # Offsetfrei regeln: die Störung mitschätzen und was es kostet – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-offsetfrei-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-offsetfrei-demo.streamlit.app/)**
 
 Diese Demo gehört zum Thema **Regelung (von LQR bis MPC)** auf der Website „Sebastian Hanisch – Operations Research und Machine Learning“. Vehikel ist **ein Wagen** (Doppelintegrator, Takt 1, Ort gemessen) mit einem **Skalar** als Handbeispiel, nicht das Lager.
 Sie baut auf zwei Demos auf: [`plan-stoerung-demo`](https://github.com/sebastian-hanisch/plan-stoerung-demo) zeigt, dass die Rückführung u = −K x eine konstante Störung hält, aber einen **Dauerfehler** d/K₁ (am Wagen bei R = 1 etwa 2,37·d) stehen lässt, und [`lqr-riccati-demo`](https://github.com/sebastian-hanisch/lqr-riccati-demo) liefert den Gewinn K. Diese Demo beseitigt den Fehler (Störungsmodell mit Beobachter, als zweiter Weg der Integralzustand) und fragt, **was die Beseitigung kostet** und wo sie nicht hilft. Konventionen sind die dieser beiden Demos: u = −K x, Kosten Σ (x'Q x + R u²) ohne Faktor ½, Q = I (am Skalar Q = 1).
