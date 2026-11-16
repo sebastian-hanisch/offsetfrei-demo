@@ -1,8 +1,8 @@
-"""Claims: jede Zahl der README (Befundtabelle M1 bis M12, Tabelle M9, Korrekturen) und der App-Texte wird hier mit denselben Funktionen nachgerechnet wie in der App.
+"""Claims: jede Zahl der README (Befundtabelle M1 bis M12, Tabelle M9, Abweichungen) und der App-Texte wird hier mit denselben Funktionen nachgerechnet wie in der App.
 
 Voraussetzungen wie in der README: Wagen, konstante Störkraft am Eingang, Ort gemessen, K aus der DARE (Q = I), Beobachter 3 x rho (Ackermann), Störsprung aus der Ruhe, Messrauschen weiß mit
 Varianz 1. Plattformabhängiges (Spitzen, Gebiete, Frequenzspitzen, Zählungen von Zufallsstrecken) steht als Band: relative Toleranz 1e-9 bzw. die gedruckten Stellen, Zählungen ± 2;
-exakt nur, was in Brüchen gerechnet ist. Die Vormessungen (out_rg_v17_*.txt) sind die Erwartung; Abweichungen stehen in der README unter „Befunde und Korrekturen“."""
+exakt nur, was in Brüchen gerechnet ist. Frühere Rechnungen dienten als Erwartung; Abweichungen stehen in der README unter „Abweichungen gegenüber den ersten Überschlagsrechnungen“."""
 
 import re
 import subprocess

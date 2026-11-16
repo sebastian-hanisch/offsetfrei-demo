@@ -8,7 +8,7 @@ MESSREIHEN_PATH = DATA_DIR / "off_messreihen.json"
 # Seitenleiste ------------------------------------------------------------------------------------------------------------------------
 STRECKEN = ("wagen", "skalar1", "skalar_halb")
 DEFAULT_STRECKE = "wagen"
-R_OPTIONS = (0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0, 2.0, 5.0, 10.0, 20.0)   # Stellgewicht R (Q = I); die Vormessung benutzt 1, 0,1, 0,01, 0,001 und am Skalar 2
+R_OPTIONS = (0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0, 2.0, 5.0, 10.0, 20.0)   # Stellgewicht R (Q = I); frühere Rechnungen benutzten 1, 0,1, 0,01, 0,001 und am Skalar 2
 DEFAULT_R = 1.0
 D_MIN, D_MAX, D_STEP, DEFAULT_D = -2.0, 2.0, 0.1, 1.0                         # konstante Störkraft am Eingang
 SOLL_MIN, SOLL_MAX, SOLL_STEP, DEFAULT_SOLL = -5.0, 5.0, 0.5, 0.0             # Sollwert des Ortes

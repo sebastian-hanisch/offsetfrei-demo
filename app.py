@@ -148,8 +148,8 @@ with st.container(key="kopf"):
 st.markdown(
     f"""
 Ein Wagen soll an einem Ort bleiben, und eine **konstante Störkraft** schiebt ihn. Die Zustandsrückführung u = −K x aus der Riccati-Gleichung hält ihn nicht am Ziel: Es bleibt ein **Dauerfehler** von d/K₁ (am Wagen bei R = 1: 2,369·d).
-Dieses Stück der Reihe „Regelung (von LQR bis MPC)“ zeigt, wie ein **Störungsmodell mit Beobachter** den Fehler beseitigt, und fragt, **was die Beseitigung kostet** (Spitze, Frequenzgang, Reserve) und wo sie nicht hilft (Rampe, Messbias, Stellgrenze).
-Vorgänger in der Reihe: [`plan-stoerung-demo`]({NEIGHBOUR}/plan-stoerung-demo) misst den Dauerfehler als Zahl, [`lqr-riccati-demo`]({NEIGHBOUR}/lqr-riccati-demo) liefert den Gewinn K.
+Diese Demo zum Thema „Regelung (von LQR bis MPC)“ zeigt, wie ein **Störungsmodell mit Beobachter** den Fehler beseitigt, und fragt, **was die Beseitigung kostet** (Spitze, Frequenzgang, Reserve) und wo sie nicht hilft (Rampe, Messbias, Stellgrenze).
+Aufgebaut auf: [`plan-stoerung-demo`]({NEIGHBOUR}/plan-stoerung-demo) misst den Dauerfehler als Zahl, [`lqr-riccati-demo`]({NEIGHBOUR}/lqr-riccati-demo) liefert den Gewinn K.
 Alles gilt **in diesem Modell** (linear, eine Störung am Eingang, Ort gemessen) und ist eigene Nachrechnung.
 
 Weiter unten: die **Kernfragen**, **fünf Experimente**, der Abschnitt **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
@@ -370,7 +370,7 @@ st.dataframe(
 )
 kind, text = E.verdict_zwei_wege(zw["integral"], zw["beobachter"], float(qi), settings.rho)
 getattr(st, kind)(text)
-st.caption(f"Der Integrator mit Stellgrenze und Rückrechnung steht in [`windup-pi-demo`]({NEIGHBOUR}/windup-pi-demo); hier hat keiner der beiden Wege eine Stellgrenze.")
+st.caption(f"Der Integrator mit Stellgrenze und Rückrechnung steht in [`windup-pi-demo`]({NEIGHBOUR}/windup-pi-demo); hier rechnen die zwei Wege dieses Vergleichs ohne Stellgrenze; abgeschnitten wird die Stellgröße nur in der Hauptansicht (Regler Stellgrenze) und in Experiment E, ohne Rückrechnung.")
 
 st.markdown("---")
 
@@ -459,7 +459,7 @@ $$\hat z_{k+1} = A_e \hat z_k + B_e u_k + L \,(y_k - C_e \hat z_k), \qquad u_k =
 
 **Spitze und Abklingzeit.** Spitze $= \max_k |p_k - r|$ nach einem Störsprung aus der Ruhe, Abklingzeit $=$ letzte Periode mit $|p_k - r|$ über 1 Prozent der Spitze.
 
-**Literatur** (nur im Wortlaut gelesen, soweit angegeben; die Gleichungen sind hier in eigenen Worten und eigene Nachrechnung in diesem Modell): Rawlings, Mayne, Diehl, *Model Predictive Control*, Kap. 1.5.2 (Störungsmodell, Rangbedingung, Lemma 1.10); Borrelli, Bemporad, Morari, *Predictive Control*, Kap. 12.7 (Sätze zur Beobachtbarkeit und zur Offsetfreiheit, Bemerkung zu Integratoren); Åström, Murray, *Feedback Systems*, Kap. 7.4 (Integralzustand). Stellenangaben nach dem Quellenbericht der Planung, die Originalstellen sind beim Bau nicht erneut geöffnet worden.
+**Literatur** (nur im Wortlaut gelesen, soweit angegeben; die Gleichungen sind hier in eigenen Worten und eigene Nachrechnung in diesem Modell): Rawlings, Mayne, Diehl, *Model Predictive Control*, Kap. 1.5.2 (Störungsmodell, Rangbedingung, Lemma 1.10); Borrelli, Bemporad, Morari, *Predictive Control*, Kap. 12.7 (Sätze zur Beobachtbarkeit und zur Offsetfreiheit, Bemerkung zu Integratoren); Åström, Murray, *Feedback Systems*, Kap. 7.4 (Integralzustand). Stellenangaben nach einem Quellenbericht, die Originalstellen sind hier nicht erneut geöffnet worden.
         """
     )
 
@@ -467,7 +467,7 @@ st.markdown("---")
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
     "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
-    "Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html)."
+    "Mehr zur Reihe: [Regelung von LQR bis MPC: vom Plan zur Regel](https://sebastianhanisch.net/konzepte-regelung.html)."
 )
 
 sync_query_params({

@@ -179,7 +179,7 @@ def test_strecken_und_gewinn():
     A, B, C = K.strecke("wagen")
     assert A.tolist() == [[1, 1], [0, 1]] and B.ravel().tolist() == [0, 1] and C.tolist() == [[1, 0]]
     K1 = K.lqr_gain(A, B, 1.0)
-    assert K1[0] == pytest.approx([0.42208244, 1.24392885], abs=1e-7)                 # V1: K = (0,42208; 1,24393)
+    assert K1[0] == pytest.approx([0.42208244, 1.24392885], abs=1e-7)                 # K = (0,42208; 1,24393)
     with pytest.raises(ValueError):
         K.strecke("kugel")
 
