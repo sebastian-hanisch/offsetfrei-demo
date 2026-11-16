@@ -378,4 +378,4 @@ def test_readme_testzahl_stimmt_mit_der_suite_ueberein():
 
 def test_readme_hat_keine_offenen_platzhalter_ausser_dem_live_link():
     todos = [z for z in README.splitlines() if "TODO" in z]
-    assert len(todos) == 1 and "nach dem Deploy" in todos[0]
+    assert all("nach dem Deploy" in z for z in todos) and len(todos) <= 1, todos   # vor dem Deploy der Platzhalter, danach gar keiner
